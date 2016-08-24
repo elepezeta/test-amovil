@@ -1,0 +1,43 @@
+/* ====== MEDIA OBJECT ====== */
+/* URL: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+
+*/
+.media {
+  &__clean{
+    margin: 0px;
+  }
+}
+
+.media,
+.media__body {
+  overflow:hidden;
+  _overflow:visible;
+  zoom:1;
+}
+
+.media{
+	.media__img {
+  	float:left;
+  	margin-right: 10px;
+  	overflow: hidden;
+  	&__rounded{
+  		border-radius: 100%;
+	    width: 33px;
+	    height: 33px;
+  	}
+    &--right{
+      float: right;
+      margin-right: 0px;
+      margin-left: 10px;
+    }
+	}
+	img{
+	  display:block;
+	  max-width: 100%;
+    max-height: 100%;
+	}
+	.imgExt{
+	  float:right;
+	  margin-left: 10px;
+	}
+}

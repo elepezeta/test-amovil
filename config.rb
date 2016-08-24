@@ -29,6 +29,27 @@ page '/*.txt', layout: false
 #   end
 # end
 
+# Reload the browser automatically whenever files change
+configure :development do
+  activate :livereload
+end
+
+set :layouts_dir, 'layouts'
+
+set :css_dir, 'assets/stylesheets'
+
+set :js_dir, 'assets/javascripts'
+
+set :images_dir, 'assets/images'
+
+set :fonts_dir, 'assets/fonts'
+
+set :relative_links, true
+
+set :haml, { :format => :html5 }
+
+set :erb, { :format => :html5 }
+
 # Build-specific configuration
 configure :build do
   # Minify CSS on build

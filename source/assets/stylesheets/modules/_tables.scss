@@ -1,0 +1,25 @@
+.table--price{
+  font-size: 12px;
+  td{
+    padding: 10px 0px;
+  }
+  td,th{
+    &:first-child{
+      padding-left: 5px;
+    }
+    &:last-child{
+      padding-left: 5px;
+    }
+  }
+  thead{
+    color: $gray-dark-color;
+    td{
+      border-bottom: 1px solid #ccc;
+    }
+  }
+  tbody{
+    td{
+      border-bottom: 1px solid $gray-light-color;
+    }
+  }
+}

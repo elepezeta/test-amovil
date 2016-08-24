@@ -1,0 +1,39 @@
+.side--bar{
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  &__header{
+    text-align: center;
+    background: $blue-color;
+    padding: 15px 0;
+    height: 66px;
+    img{
+      width: 35px;
+      height: 35px;
+    }
+  }
+  &__menu{
+    background: $black-bar-color;
+    color: $white;
+    height: 100%;
+    li{
+
+      a{
+        color: $white;
+        padding: 15px 20px;
+        border-left: 4px solid transparent;
+        width: 100%;
+        i{
+          margin-right: 10px;
+        }
+        &.active{
+          background: rgba(255,255,255, 0.3);
+          border-left: 4px solid $blue-light-color;
+        }
+      }
+
+    }
+  }
+}

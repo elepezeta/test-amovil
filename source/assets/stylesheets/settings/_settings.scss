@@ -1,0 +1,76 @@
+// Line Height
+$font-size-base:    14px!default;
+$line-height-base:  20px!default;
+
+// Font Family
+$font-family-serif        : 'Open Sans', serif !default;
+$font-family-sans-serif   : Arial, sans-serif !default;
+$font-family-base         : $font-family-serif;
+$font-family-alternative  : $font-family-sans-serif;
+
+// Font Weight
+$font-weight-light        : 300;
+$font-weight-normal       : 400;
+$font-weight-semibold     : 600;
+$font-weight-bold         : 700;
+$font-weight-extrabold    : 800;
+
+// Colors
+$black                    : #000;
+$primary-color            : #4F5D73;
+$white                    : #FFF;
+$black-altern-color       : #343034;
+$blue-color               : #168fd3;
+$blue-light-color         : #00adef;
+$black-bar-color          : #202022;
+$gray-color               : #8d8f8f;
+$gray-light-color         : #dfe3e3;
+$gray-dark-color          : #5a626a;
+$pink-color               : #ef2e5e;
+$orange-color             : #f78f44;
+$green-color              : #20b38d;
+
+$bg-body                  : #edebed;
+
+
+// Spacing units
+$base-spacing-unit:       $line-height-base!default;
+$half-spacing-unit:       $base-spacing-unit / 2!default;
+$double-spacing-unit:     $base-spacing-unit * 2!default;
+$quadruple-spacing-unit:  $base-spacing-unit * 4!default;
+
+$line-height-ratio:   $line-height-base / $font-size-base;
+
+
+// Breakpoints
+$phone-start:        500px!default;
+$palm-start:        600px!default;
+$lap-start:         850px!default;
+$desk-start:        1125px!default;
+$desk-wide-start:   1165px!default;
+
+$screen: "only screen";
+$gt-small: "only screen and (min-width: #{$palm-start})";
+$gt-medium: "only screen and (min-width: #{$lap-start})";
+$gt-large: "only screen and (min-width: #{$desk-start})";
+$gt-extra-large: "only screen and (min-width: #{$desk-wide-start})";
+
+$breakpoints: (
+    'phone' '(min-width: #{$phone-start})',
+    'palm' '(min-width: #{$palm-start})',
+    'lap' '(min-width: #{$lap-start})',
+    'desk' '(min-width: #{$desk-start})',
+    'desk-wide' '(min-width: #{$desk-wide-start})'
+) !default;
+
+$wrapper-size:        1024px!default;
+$wrapper-size-medium: 940px!default;
+$wrapper-size-video:  550px!default;
+$wrapper-size-small:  480px!default;
+
+
+$border-radius-base: 2px;
+
+ /*Transition vars*/
+ $transition 					: all 0.2s ease-out;
+ $transition-buttons		: opacity 0.2s ease-out;

@@ -1,0 +1,35 @@
+.header--main{
+  background: $blue-light-color;
+  padding: 0px 35px;
+  height: 66px;
+  li{
+    overflow: hidden;
+    i{
+      vertical-align: middle;
+    }
+    a{
+      padding: 19px 10px;
+      color: $white;
+      vertical-align: middle;
+      line-height: 2em;
+      &:hover{
+        background: $blue-color;
+      }
+    }
+  }
+  .icon--circle{
+    background: $white;
+    color: $blue-light-color;
+    border-radius: 100%;
+    padding: 5px;
+  }
+}
+
+.header--nav{
+  h3{
+    color:$black-altern-color ;
+    font-size: 24px;
+    font-weight: bold;
+
+  }
+}

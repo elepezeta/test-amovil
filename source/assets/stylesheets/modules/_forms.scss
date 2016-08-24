@@ -1,0 +1,33 @@
+.select--style{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: 0px -1px 0px $gray-light-color;
+  border: 1px solid $gray-light-color;
+  padding: 6px 20px 6px 10px;
+  display: inline;
+}
+
+.datepicker{
+  position: relative;
+  display: inline;
+  i{
+    box-shadow: 0px -1px 0px $gray-light-color;
+    border: 1px solid $gray-light-color;
+    padding: 8px 9px 10px;
+    z-index: 1;
+    margin-left: -5px;
+    background: $white;
+  }
+  .ui-datepicker-trigger{
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    z-index: 2;
+  }
+}
+.input-calendar{
+  box-shadow: 0px -1px 0px $gray-light-color;
+  border: 1px solid $gray-light-color;
+  padding: 6px 20px 6px 10px;
+}

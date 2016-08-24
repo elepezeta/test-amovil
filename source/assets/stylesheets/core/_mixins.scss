@@ -1,0 +1,190 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   `@include font-size(10px);`
+ *
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ */
+@mixin font-size($font-size, $line-height:true){
+    font-size:$font-size;
+    font-size:($font-size / $font-size-base)*1rem;
+    @if $line-height == true{
+        line-height:ceil($font-size / $line-height-base) * ($line-height-base / $font-size);
+    }
+}
+
+@mixin simetric($size) {
+    height: $size;
+    line-height: $size;
+    width: $size;
+}
+
+/**
+ * Style any number of headings in one fell swoop, e.g.:
+ *
+   .foo{
+       @include headings(1, 3){
+           color:#BADA55;
+       }
+    }
+ *
+ * With thanks to @lar_zzz, @paranoida, @rowanmanning and ultimately
+ * @thierrylemoulec for refining and improving my initial mixin.
+ */
+@mixin headings($from: 1, $to: 6){
+    %base-heading {
+        @content
+    }
+
+    @if $from >= 1 and $to <= 6{
+        @for $i from $from through $to{
+            h#{$i}{
+                @extend %base-heading;
+            }
+        }
+    }
+}
+
+/**
+ * Media query mixin.
+ *
+ * It’s not great practice to define solid breakpoints up-front, preferring to
+ * modify your design when it needs it, rather than assuming you’ll want a
+ * change at ‘mobile’. However, as inuit.css is required to take a hands off
+ * approach to design decisions, this is the closest we can get to baked-in
+ * responsiveness. It’s flexible enough to allow you to set your own breakpoints
+ * but solid enough to be frameworkified.
+ *
+ * We define some broad breakpoints in our vars file that are picked up here
+ * for use in a simple media query mixin. Our options are:
+ *
+ * palm
+ * lap
+ * lap-and-up
+ * portable
+ * desk
+ * desk-wide
+ *
+ * Not using a media query will, naturally, serve styles to all devices.
+ *
+ * `@include media-query(palm){ [styles here] }`
+ *
+ * We work out your end points for you:
+ */
+$palm-end:              $lap-start - 1px;
+$lap-end:               $desk-start - 1px;
+
+@mixin media-query($media-query){
+
+    @if $media-query == palm{
+
+        @media only screen and (max-width:$palm-end) { @content; }
+
+    }
+
+    @if $media-query == lap{
+
+        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
+
+    }
+
+    @if $media-query == lap-and-up{
+
+        @media only screen and (min-width:$lap-start) { @content; }
+
+    }
+
+    @if $media-query == portable{
+
+        @media only screen and (max-width:$lap-end) { @content; }
+
+    }
+
+    @if $media-query == desk{
+
+        @media only screen and (min-width:$desk-start) { @content; }
+
+    }
+
+    @if $media-query == desk-wide{
+
+        @media only screen and (min-width: $desk-wide-start) { @content; }
+
+    }
+
+    @if $media-query == only-desk{
+
+        @media only screen and (min-width: $desk-start) and (max-width:$desk-wide-start) { @content; }
+
+    }
+
+    @if $media-query == desk-down{
+
+        @media only screen and (max-width: $desk-start) { @content; }
+
+    }
+
+}
+
+@mixin linear-gradient($gradientLine, $colorStops...) {
+  background-image: -webkit-linear-gradient($gradientLine, $colorStops);
+  background-image:    -moz-linear-gradient($gradientLine, $colorStops);
+  background-image:      -o-linear-gradient($gradientLine, $colorStops);
+  @if length($gradientLine) == 2 {
+  background-image:         linear-gradient(to #{inverse-side(nth($gradientLine, 1))} #{inverse-side(nth($gradientLine, 2))}, $colorStops);
+  } @else {
+  background-image:         linear-gradient(to #{inverse-side($gradientLine)}, $colorStops);
+  }
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+@mixin transition-property($properties...) {
+  -webkit-transition-property: $properties;
+     -moz-transition-property: $properties;
+       -o-transition-property: $properties;
+          transition-property: $properties;
+}
+
+@mixin color-list-box($type, $type_box:""){
+
+  $back : transparent;
+  $border : transparent;
+
+  @if $type == allconnections{
+    $back : #4bc5c3;
+    $border : #4DB7B5;
+  } @else if $type == perconnections{
+    $back : #0aa1d8;
+    $border : #1E96C1;
+  } @else if $type == profconnections{
+    $back : #5f676f;
+    $border : #676D73;
+  } @else if $type == connect{
+    $back : #3b658c;
+    $border : #466E94;
+  }
+
+  @if $type_box == attach{
+    border: 1px solid $back;
+    border-top: none;
+  } @else{
+    background: $back;
+    >li:first-child:after{
+      content: '';
+      border-right: 1px solid $border;
+      border-top: 30px solid $border;
+    }
+  }
+
+}
